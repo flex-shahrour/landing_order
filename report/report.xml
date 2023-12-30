@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <record id="landing_order_report" model="ir.actions.report">
+            <field name="name">Landing Order</field>
+            <field name="model">landing.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">landing_order.flex_landing_order_report</field>
+            <field name="report_file">landing_order.flex_landing_order_report</field>
+            <field name="print_report_name">'Landing Order'</field>
+            <field name="binding_model_id" ref="landing_order.model_landing_order"/>
+            <field name="binding_type">report</field>
+        </record>
 
-        <report
-                id="report_landing_order"
-                model="landing.order"
-                string="ReportTitle"
-                name="landing_order_view"
-                file="flex_landing_orders.report_landing_order"
-                report_type="qweb-pdf"/>
-
-        <!--        <t t-name="account.report_invoice_with_payments">-->
-        <!--            <t t-call="account.report_invoice">-->
-        <!--                <t t-set="print_with_payments" t-value="True"/>-->
-        <!--            </t>-->
-        <!--        </t>-->
-
-        <template id="landing_order_view">
+        <template id="flex_landing_order_report">
             <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="doc">
+                <t t-foreach="docs" t-as="o">
                     <t t-call="web.external_layout">
-                        <div class="page">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h2>Report Title</h2>
+                        <div class="col-12">
+                            <div class=" col-6 text-center float-end" dir="rtl">
+                                <h3>إذن التحميل</h3>
+                            </div>
+                            <div class="col-6 text-center float-start" dir="ltr">
+                                <h3>Landing Order</h3>
+                            </div>
+                        </div>
+                        <div class="col-6 float-start text-start mt-4" style="margin-left:-200px;">
+                            <div>
+                                <div class="col-2 float-end" dir="rtl">
+                                    <h6>التاريخ</h6>
+                                </div>
+                                <div class="col-3 float-end text-center">
+                                    <span t-field="o.h_date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </div>
+                                <div class="col-1 float-end" dir="ltr">
+                                    <h6>H :</h6>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h3>Report Subtitle</h3>
+                            <br/>
+                            <br/>
+                            <div>
+                                <div class="col-2 float-end" dir="rtl">
+                                    <h6>الموافق</h6>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <table class="table table-condensed">
-                                        <thead>
-                                            <tr>
-                                                <th>Column 1</th>
-                                                <th>Column 2</th>
-                                                <th>Column 3</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Value 1</td>
-                                                <td>Value 2</td>
-                                                <td>Value 3</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="col-3 float-end text-center">
+                                    <span t-field="o.date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </div>
+                                <div class="col-1 float-end" dir="ltr">
+                                    <h6>Date</h6>
                                 </div>
                             </div>
                         </div>
@@ -58,22 +56,78 @@
         </template>
 
 
-        <template id="report_invoice_34">
-            <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-set="lang" t-value="o.partner_id.lang"/>
-                    <!--                    <t t-if="o._get_name_invoice_report() == 'flex_landing_orders.landing_order_view'"-->
-                    <!--                       t-call="flex_landing_orders.landing_order_view"-->
-                    <!--                       t-lang="lang"/>-->
-                </t>
-            </t>
-        </template>
+        <!--        <report-->
+        <!--                id="report_landing_order"-->
+        <!--                model="landing.order"-->
+        <!--                string="ReportTitle"-->
+        <!--                name="landing_order_view"-->
+        <!--                file="flex_landing_orders.report_landing_order"-->
+        <!--                report_type="qweb-pdf"/>-->
 
-        <template id="report_invoice_with_payments_dfdf">
-            <t t-call="flex_landing_orders.report_invoice_34">
-                <t t-set="landing_order_view" t-value="True"/>
-            </t>
-        </template>
+        <!--        &lt;!&ndash;        <t t-name="account.report_invoice_with_payments">&ndash;&gt;-->
+        <!--        &lt;!&ndash;            <t t-call="account.report_invoice">&ndash;&gt;-->
+        <!--        &lt;!&ndash;                <t t-set="print_with_payments" t-value="True"/>&ndash;&gt;-->
+        <!--        &lt;!&ndash;            </t>&ndash;&gt;-->
+        <!--        &lt;!&ndash;        </t>&ndash;&gt;-->
+
+        <!--        <template id="landing_order_view">-->
+        <!--            <t t-call="web.html_container">-->
+        <!--                <t t-foreach="docs" t-as="doc">-->
+        <!--                    <t t-call="web.external_layout">-->
+        <!--                        <div class="page">-->
+        <!--                            <div class="row">-->
+        <!--                                <div class="col-xs-12">-->
+        <!--                                    <h2>Report Title</h2>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                            <div class="row">-->
+        <!--                                <div class="col-xs-12">-->
+        <!--                                    <h3>Report Subtitle</h3>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                            <div class="row">-->
+        <!--                                <div class="col-xs-12">-->
+        <!--                                    <table class="table table-condensed">-->
+        <!--                                        <thead>-->
+        <!--                                            <tr>-->
+        <!--                                                <th>Column 1</th>-->
+        <!--                                                <th>Column 2</th>-->
+        <!--                                                <th>Column 3</th>-->
+        <!--                                            </tr>-->
+        <!--                                        </thead>-->
+        <!--                                        <tbody>-->
+        <!--                                            <tr>-->
+        <!--                                                <td>Value 1</td>-->
+        <!--                                                <td>Value 2</td>-->
+        <!--                                                <td>Value 3</td>-->
+        <!--                                            </tr>-->
+        <!--                                        </tbody>-->
+        <!--                                    </table>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </t>-->
+        <!--                </t>-->
+        <!--            </t>-->
+        <!--        </template>-->
+
+
+        <!--        <template id="report_invoice_34">-->
+        <!--            <t t-call="web.html_container">-->
+        <!--                <t t-foreach="docs" t-as="o">-->
+        <!--                    <t t-set="lang" t-value="o.partner_id.lang"/>-->
+        <!--                    &lt;!&ndash;                    <t t-if="o._get_name_invoice_report() == 'flex_landing_orders.landing_order_view'"&ndash;&gt;-->
+        <!--                    &lt;!&ndash;                       t-call="flex_landing_orders.landing_order_view"&ndash;&gt;-->
+        <!--                    &lt;!&ndash;                       t-lang="lang"/>&ndash;&gt;-->
+        <!--                </t>-->
+        <!--            </t>-->
+        <!--        </template>-->
+
+        <!--        <template id="report_invoice_with_payments_dfdf">-->
+        <!--            <t t-call="flex_landing_orders.report_invoice_34">-->
+        <!--                <t t-set="landing_order_view" t-value="True"/>-->
+        <!--            </t>-->
+        <!--        </template>-->
 
     </data>
 </odoo>
