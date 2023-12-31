@@ -16,37 +16,154 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.external_layout">
-                        <div class="col-12">
-                            <div class=" col-6 text-center float-end" dir="rtl">
-                                <h3>إذن التحميل</h3>
-                            </div>
-                            <div class="col-6 text-center float-start" dir="ltr">
-                                <h3>Landing Order</h3>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-6 text-center float-end" dir="rtl">
+                                    <h3>إذن التحميل</h3>
+                                </div>
+                                <div class="col-6 text-center float-start" dir="ltr">
+                                    <h3>Landing Order</h3>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6 float-start text-start mt-4" style="margin-left:-200px;">
-                            <div>
-                                <div class="col-2 float-end" dir="rtl">
-                                    <h6>التاريخ</h6>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="float-end text-end mt-4" dir="rtl" style="margin-right: 120px;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <p>
+                                        <div class="float-end" dir="rtl">
+                                            <h6>رقم كود العميل/</h6>
+                                        </div>
+                                        <div class="float-end" dir="rtl">
+                                            <span class="text-center" t-field="o.partner_code"/>
+                                        </div>
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        <h6>السادة/شركة اسمنت</h6>
+                                    </p>
+                                    <p>
+                                        <h6>ارجو تسليم السائق</h6>
+                                    </p>
+                                    <p>
+                                        <h6>سيارة رقم</h6>
+                                    </p>
+                                    <p>
+                                        <h6>الكمية(طن-كيس)</h6>
+                                    </p>
+                                    <p>
+                                        <h6>النوع اسمنت(عادي-مقاوم-سايب)</h6>
+                                    </p>
                                 </div>
-                                <div class="col-3 float-end text-center">
-                                    <span t-field="o.h_date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                <div class="col-3 float-end text-center mt-4" style="height: 265px;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <p>
+                                        <span t-field="o.partner_id"/>
+                                    </p>
+                                    <p>
+                                        <span t-field="o.driver_id"/>
+                                    </p>
+                                    <p>
+                                        <span t-field="o.car_id"/>
+                                    </p>
+                                    <p>
+                                        <span t-field="o.quantity"/>
+                                    </p>
+                                    <p>
+                                        <span t-field="o.kind"/>
+                                    </p>
                                 </div>
-                                <div class="col-1 float-end" dir="ltr">
-                                    <h6>H :</h6>
+                                <div class="float-start text-start mt-4" dir="ltr" style="margin-left: 120px;">
+                                    <div>
+                                        <div class="float-end" dir="ltr">
+                                            <span t-field="o.name"/>
+                                        </div>
+                                        <div class="float-end text-center">
+                                            <h6>Serial No:</h6>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div>
+                                        <div class="float-end" dir="rtl">
+                                            <h6>التاريخ</h6>
+                                        </div>
+                                        <div class="float-end text-center">
+                                            <span t-field="o.h_date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                        </div>
+                                        <div class="float-end" dir="ltr">
+                                            <h6>H :</h6>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div>
+                                        <div class="float-end" dir="rtl">
+                                            <h6>الموافق</h6>
+                                        </div>
+                                        <div class="float-end text-center">
+                                            <span t-field="o.date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                        </div>
+                                        <div class="float-end" dir="ltr">
+                                            <h6>Date</h6>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <p>
+                                        <h6>Cement Company</h6>
+                                    </p>
+                                    <p>
+                                        <h6>Driver Name</h6>
+                                    </p>
+                                    <p>
+                                        <h6>Car No.</h6>
+                                    </p>
+                                    <p>
+                                        <h6>Qty.</h6>
+                                    </p>
+                                    <p>
+                                        <h6>Kind</h6>
+                                    </p>
                                 </div>
                             </div>
-                            <br/>
-                            <br/>
-                            <div>
-                                <div class="col-2 float-end" dir="rtl">
-                                    <h6>الموافق</h6>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+
+                                <div class="col-4 float-end text-center">
+                                    <p>
+                                        <span>
+                                            <h6>محرر الإذن</h6>
+                                        </span>
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        <hr/>
+                                    </p>
                                 </div>
-                                <div class="col-3 float-end text-center">
-                                    <span t-field="o.date" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                <div class="col-4 float-end text-center">
+                                    <p>
+                                        <span>
+                                            <h6>الختم الرسمي</h6>
+                                        </span>
+                                    </p>
                                 </div>
-                                <div class="col-1 float-end" dir="ltr">
-                                    <h6>Date</h6>
+                                <div class="col-4 float-start text-center">
+                                    <p>
+                                        <span>
+                                            <h6>مشرف الامدادات</h6>
+                                        </span>
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        <hr/>
+                                    </p>
                                 </div>
                             </div>
                         </div>
